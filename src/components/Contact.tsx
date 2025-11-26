@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import { MapPin, Phone } from 'lucide-react';
-import ProjectIntake from './ProjectIntake';
+// import ProjectIntake from './ProjectIntake';
 
 export default function Contact() {
   return (
-    <footer className="relative py-20 border-t border-border overflow-hidden">
+    <footer id="contact" className="relative py-20 border-t border-border overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Project Intake Form */}
+        {/*
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,6 +25,7 @@ export default function Contact() {
           </div>
           <ProjectIntake />
         </motion.div>
+        */}
 
         {/* Contact Information */}
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">

@@ -29,7 +29,7 @@ const loanAmounts = [
   '$2M+',
 ];
 
-export default function ProjectIntake() {
+function ProjectIntake() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -90,7 +90,7 @@ export default function ProjectIntake() {
           animate={{ scale: 1, opacity: 1 }}
           className="text-center"
         >
-          <CheckCircle2 className="w-16 h-16 text-gold mx-auto mb-6" />
+          <CheckCircle2 className="w-16 h-16 text-secondary mx-auto mb-6" />
           <h3 className="text-3xl font-cinzel font-bold mb-4">Application Received</h3>
           <p className="text-muted-foreground font-grotesk text-lg mb-2">
             Your project intake has been logged.
@@ -114,7 +114,7 @@ export default function ProjectIntake() {
           animate={{ opacity: 1 }}
           className="text-center"
         >
-          <Loader2 className="w-12 h-12 text-gold mx-auto mb-6 animate-spin" />
+          <Loader2 className="w-12 h-12 text-secondary mx-auto mb-6 animate-spin" />
           <h3 className="text-2xl font-cinzel font-bold mb-2">Underwriting Algorithm Initiated</h3>
           <p className="text-muted-foreground font-grotesk">
             Analyzing asset parameters...
@@ -125,7 +125,8 @@ export default function ProjectIntake() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto glass-strong rounded-sm p-8 md:p-12">
+    <div className="w-full max-w-2xl mx-auto glass-strong rounded-sm p-8 md:p-12 flex flex-col">
+      <div className="flex-1 overflow-y-auto pb-32">
       {/* Progress Indicator */}
       <div className="flex items-center justify-between mb-12">
         {[1, 2, 3].map((s) => (
@@ -133,7 +134,7 @@ export default function ProjectIntake() {
             <div
               className={`w-10 h-10 rounded-full border-2 flex items-center justify-center font-mono text-sm transition-all ${
                 s <= step
-                  ? 'border-gold bg-gold/10 text-gold'
+                  ? 'border-secondary bg-secondary/10 text-primary'
                   : 'border-border text-muted-foreground'
               }`}
             >
@@ -142,7 +143,7 @@ export default function ProjectIntake() {
             {s < 3 && (
               <div
                 className={`flex-1 h-0.5 mx-2 transition-all ${
-                  s < step ? 'bg-gold' : 'bg-border'
+                  s < step ? 'bg-secondary' : 'bg-border'
                 }`}
               />
             )}
@@ -179,11 +180,11 @@ export default function ProjectIntake() {
                       onClick={() => setFormData({ ...formData, assetType: type.id })}
                       className={`p-6 rounded-sm border transition-all text-left ${
                         isSelected
-                          ? 'border-gold bg-gold/5 shadow-gold-glow'
-                          : 'border-border hover:border-gold/50 glass-weak'
+                          ? 'border-secondary bg-secondary/10 ambient-cerulean'
+                          : 'border-border hover:border-secondary/50 glass-weak'
                       }`}
                     >
-                      <Icon className={`w-10 h-10 mb-4 ${isSelected ? 'text-gold' : 'text-muted-foreground'}`} />
+                      <Icon className={`w-10 h-10 mb-4 ${isSelected ? 'text-secondary' : 'text-muted-foreground'}`} />
                       <h3 className="font-grotesk font-semibold mb-1">{type.label}</h3>
                       <p className="text-sm text-muted-foreground">{type.description}</p>
                     </button>
@@ -219,7 +220,7 @@ export default function ProjectIntake() {
                     value={formData.address}
                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                     placeholder="Enter full address"
-                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-ring transition-colors"
                   />
                 </div>
 
@@ -230,7 +231,7 @@ export default function ProjectIntake() {
                   <select
                     value={formData.loanAmount}
                     onChange={(e) => setFormData({ ...formData, loanAmount: e.target.value })}
-                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-ring transition-colors"
                   >
                     <option value="">Select range</option>
                     {loanAmounts.map((amount) => (
@@ -250,7 +251,7 @@ export default function ProjectIntake() {
                     value={formData.timeline}
                     onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
                     placeholder="e.g., 6-12 months"
-                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-ring transition-colors"
                   />
                 </div>
               </div>
@@ -283,7 +284,7 @@ export default function ProjectIntake() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Your full name"
-                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-ring transition-colors"
                   />
                 </div>
 
@@ -296,7 +297,7 @@ export default function ProjectIntake() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="your@email.com"
-                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-ring transition-colors"
                   />
                 </div>
 
@@ -309,7 +310,7 @@ export default function ProjectIntake() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="(210) 284-0647"
-                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-transparent border-0 border-b border-border px-0 py-3 text-foreground font-grotesk focus:outline-none focus:border-ring transition-colors"
                   />
                 </div>
               </div>
@@ -319,7 +320,7 @@ export default function ProjectIntake() {
       </div>
 
       {/* Navigation */}
-      <div className="flex items-center justify-between mt-12 pt-8 border-t border-border">
+    <div className="sticky bottom-0 z-50 bg-background/80 backdrop-blur flex items-center justify-between mt-12 pt-8 border-t border-border">
         <button
           onClick={prevStep}
           disabled={step === 1}
@@ -337,7 +338,7 @@ export default function ProjectIntake() {
                 (step === 1 && !canProceedStep1) ||
                 (step === 2 && !canProceedStep2)
               }
-              className="flex items-center gap-2 px-6 py-3 border border-gold text-gold hover:bg-gold hover:text-midnight transition-all disabled:opacity-30 disabled:cursor-not-allowed font-grotesk rounded-sm"
+              className="flex items-center gap-2 px-6 py-3 border border-white/20 bg-background text-foreground hover:ambient-cerulean transition-all disabled:opacity-30 disabled:cursor-not-allowed font-grotesk rounded-sm"
             >
               Continue
               <ArrowRight className="w-4 h-4" />
@@ -348,7 +349,7 @@ export default function ProjectIntake() {
             <button
               onClick={handleSubmit}
               disabled={!canProceedStep3}
-              className="flex items-center gap-2 px-6 py-3 bg-gold text-midnight hover:shadow-gold-glow transition-all disabled:opacity-30 disabled:cursor-not-allowed font-grotesk rounded-sm font-semibold"
+              className="flex items-center gap-2 px-6 py-3 bg-background text-foreground hover:ambient-cerulean transition-all disabled:opacity-30 disabled:cursor-not-allowed font-grotesk rounded-sm font-semibold"
             >
               Submit Application
               <ArrowRight className="w-4 h-4" />
@@ -359,3 +360,5 @@ export default function ProjectIntake() {
     </div>
   );
 }
+
+export default ProjectIntake;

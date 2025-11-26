@@ -3,7 +3,7 @@ import Scene3D from '@/components/Scene3D';
 import Hero from '@/components/Hero';
 import Manifesto from '@/components/Manifesto';
 import Services from '@/components/Services';
-import RecentClosings from '@/components/RecentClosings';
+// RecentClosings removed per Sovereign theme refactor
 import Advantage from '@/components/Advantage';
 import Contact from '@/components/Contact';
 
@@ -30,7 +30,6 @@ const Index = () => {
         <Hero />
         <Manifesto />
         <Services />
-        <RecentClosings />
         <Advantage />
         <Contact />
       </main>

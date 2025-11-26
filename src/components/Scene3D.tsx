@@ -31,7 +31,7 @@ function WireframeGeometry({ scrollProgress }: GeometryProps) {
       <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
         <mesh ref={meshRef} geometry={icosahedronGeometry}>
           <MeshDistortMaterial
-            color="#D4AF37"
+            color="#436293"
             attach="material"
             distort={0.3}
             speed={2}
@@ -44,14 +44,14 @@ function WireframeGeometry({ scrollProgress }: GeometryProps) {
       
       {/* Additional geometric elements */}
       <mesh position={[-3, 2, -2]}>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshBasicMaterial color="#D4AF37" wireframe opacity={0.2} transparent />
-      </mesh>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshBasicMaterial color="#436293" wireframe opacity={0.2} transparent />
+        </mesh>
       
       <mesh position={[3, -2, -1]}>
-        <octahedronGeometry args={[0.8]} />
-        <meshBasicMaterial color="#D4AF37" wireframe opacity={0.15} transparent />
-      </mesh>
+          <octahedronGeometry args={[0.8]} />
+          <meshBasicMaterial color="#436293" wireframe opacity={0.15} transparent />
+        </mesh>
     </group>
   );
 }
@@ -87,7 +87,7 @@ function FloatingParticles() {
           <mesh position={particle.position} scale={particle.scale}>
             <sphereGeometry args={[0.05, 8, 8]} />
             <meshBasicMaterial 
-              color="#D4AF37" 
+              color="#fcfcfc" 
               transparent 
               opacity={0.15}
             />
@@ -110,7 +110,7 @@ export default function Scene3D({ scrollProgress }: Scene3DProps) {
         gl={{ alpha: true, antialias: true }}
       >
         <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} intensity={0.8} color="#D4AF37" />
+        <pointLight position={[10, 10, 10]} intensity={0.8} color="#436293" />
         <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ffffff" />
         <WireframeGeometry scrollProgress={scrollProgress} />
         <FloatingParticles />

@@ -7,78 +7,64 @@
 
 @layer base {
   :root {
-    /* Midnight Concrete - Deep blacks and architectural greys */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 92%;
+    /* Sovereign theme */
+    --background: 222 42% 26%; /* #26365c */
+    --foreground: 0 0% 99%; /* #fcfcfc */
+    
+    --card: 222 42% 24%;
+    --card-foreground: 0 0% 99%;
+    
+    --popover: 222 42% 24%;
+    --popover-foreground: 0 0% 99%;
 
-    /* Glass surfaces */
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 92%;
+    --primary: 0 0% 99%; /* Off-White for actions */
+    --primary-foreground: 222 42% 26%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 92%;
+    --secondary: 217 37% 42%; /* Steel Blue */
+    --secondary-foreground: 0 0% 99%;
 
-    /* Texas Gold - Metallic accent */
-    --primary: 43 65% 52%;
-    --primary-foreground: 0 0% 4%;
+    --muted: 217 12% 30%;
+    --muted-foreground: 0 0% 92%;
 
-    /* Steel - Technical secondary */
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 92%;
-
-    /* Muted architectural tones */
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
-
-    /* Accent - Subtle bronze */
-    --accent: 30 45% 45%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 217 37% 42%;
+    --accent-foreground: 0 0% 99%;
 
     --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    /* Glass borders and inputs */
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 43 65% 52%;
+    --border: 0 0% 99%; /* white, used with alpha in utilities */
+    --input: 217 30% 30%;
+    --ring: 217 37% 42%; /* Focus ring */
 
     --radius: 0.125rem;
 
-    /* Custom design tokens */
-    --gold-glow: 43 100% 70%;
-    --steel-dark: 0 0% 8%;
-    --glass-bg: 0 0% 10%;
+    --glass-bg: 222 30% 20%;
     
-    /* Shadows and glows */
-    --shadow-gold: 0 8px 32px -8px hsl(43 65% 52% / 0.3);
-    --shadow-deep: 0 20px 60px -15px hsl(0 0% 0% / 0.8);
-    --glow-gold: 0 0 40px hsl(43 100% 70% / 0.4);
-    
-    /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Ambient light palette */
+    --shadow-deep: 0 20px 60px -15px hsl(222 42% 10% / 0.6);
+    --glow-cerulean: 0 0 40px rgba(252, 252, 252, 0.25), 0 0 12px rgba(67, 98, 147, 0.3);
   }
 
   .dark {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 92%;
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 92%;
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 92%;
-    --primary: 43 65% 52%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 92%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 30 45% 45%;
-    --accent-foreground: 0 0% 98%;
+    --background: 222 42% 26%;
+    --foreground: 0 0% 99%;
+    --card: 222 42% 24%;
+    --card-foreground: 0 0% 99%;
+    --popover: 222 42% 24%;
+    --popover-foreground: 0 0% 99%;
+    --primary: 0 0% 99%;
+    --primary-foreground: 222 42% 26%;
+    --secondary: 217 37% 42%;
+    --secondary-foreground: 0 0% 99%;
+    --muted: 217 12% 30%;
+    --muted-foreground: 0 0% 92%;
+    --accent: 217 37% 42%;
+    --accent-foreground: 0 0% 99%;
     --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 43 65% 52%;
+    --border: 0 0% 99%;
+    --input: 217 30% 30%;
+    --ring: 217 37% 42%;
   }
 }
 
@@ -94,8 +80,13 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply text-foreground antialiased;
     font-family: 'Space Grotesk', sans-serif;
+    /* Volumetric illumination: radials layering over deep navy */
+    background:
+      radial-gradient(1200px 600px at 10% 0%, hsl(222 42% 22%), hsl(222 42% 26%)),
+      radial-gradient(1000px 400px at 90% 100%, hsl(222 42% 24%), hsl(222 42% 26%)),
+      hsl(var(--background));
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -119,9 +110,9 @@
     border: 1px solid hsl(var(--border) / 0.3);
   }
 
-  /* Gold glow effect */
-  .glow-gold {
-    box-shadow: var(--glow-gold);
+  /* Cerulean ambient light */
+  .ambient-cerulean {
+    box-shadow: var(--glow-cerulean);
   }
 
   /* Text gradient */

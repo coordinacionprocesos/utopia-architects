@@ -44,12 +44,15 @@ export default function Hero() {
           >
             <MagneticWrapper strength={0.4}>
               <Button
+                asChild
                 size="lg"
                 variant="outline"
-                className="glass-strong border-gold text-gold hover:bg-gold hover:text-background group text-lg px-8 py-6 transition-all duration-300"
+                className="glass-strong border-white/20 bg-background text-foreground hover:ambient-cerulean group text-lg px-8 py-6 transition-all duration-300"
               >
-                Get Funded
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <a href="#contact" aria-label="Get funded — go to contact">
+                  Get Funded
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
             </MagneticWrapper>
           </motion.div>
