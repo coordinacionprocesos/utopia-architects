@@ -32,8 +32,8 @@ export default function LogoCard() {
             style={{ transformStyle: 'preserve-3d' }}
             className="group relative mx-auto max-w-md glass-strong border border-gold rounded-sm overflow-hidden shadow-[var(--shadow-deep)] hover:shadow-[var(--shadow-gold)]"
           >
-            <div className="absolute inset-0 shimmer pointer-events-none" />
-            <div className="p-8 bg-gradient-to-br from-gold/10 via-transparent to-accent/10">
+            <div className="absolute inset-0 shimmer pointer-events-none -z-10" />
+            <div className="p-8 bg-gradient-to-br from-gold/10 via-transparent to-accent/10 relative z-10">
               <img
                 src={Logo}
                 alt="Utopia Estates III LLC Logo"
