@@ -6,7 +6,7 @@ import Services from '@/components/Services';
 import RecentClosings from '@/components/RecentClosings';
 import Advantage from '@/components/Advantage';
 import Contact from '@/components/Contact';
-import LogoCard from '@/components/LogoCard';
+
 
 const Index = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -28,7 +28,6 @@ const Index = () => {
       
       <main>
         <Hero />
-        <LogoCard />
         <Manifesto />
         <Services />
         <RecentClosings />
